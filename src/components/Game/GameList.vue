@@ -5,6 +5,7 @@
                 v-for="game in games"
                 :key="game.id"
                 :name="game.name"
+                @click.native="$emit('selected', game)"
         >
         </vm-game-list-item>
     </div>
@@ -22,21 +23,14 @@
       VmGameDisplay,
       VmGameListItem,
     },
-    props: {
-      game: {
-        type: Game,
-        required: true,
-      },
-    },
     data () {
       return {
         games: [
-            GameFactory.getDefaultGame(),
-            GameFactory.getDefaultGame(),
-            GameFactory.getDefaultGame(),
+          GameFactory.getDefaultGame(),
+          GameFactory.getDefaultGame(),
+          GameFactory.getDefaultGame(),
         ],
       }
     },
-
   }
 </script>

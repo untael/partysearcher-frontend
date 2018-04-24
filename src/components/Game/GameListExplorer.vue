@@ -1,23 +1,20 @@
 <template>
     <div>
-        <div v-if="mode === 'one'">
+        <div v-show="mode === 'one'">
             <vm-game-list
-                    @click.native="mode='two'">
-            </vm-game-list>
+                    @click.native="mode='two'"
+                    @selected="selected"
+            />
         </div>
-        <div v-else>
+        <div v-show="mode === 'two'">
             <div style="position:relative;">
-                <vm-game-list>
-                </vm-game-list>
-                <vm-game-display
-                        :game="game">
-                    <div style="position:absolute; right: 0; bottom: 0;">
-                        <button
-                                @click="mode='one'"
-                        >Close
-                        </button>
-                    </div>
-                </vm-game-display>
+                <vm-game-display :game="selectedGame"/>
+                <div style="position:absolute; right: 0; bottom: 0;">
+                    <button
+                            @click="mode='one'"
+                    >Close
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -37,11 +34,12 @@
     data () {
       return {
         mode: 'one',
+        selectedGame: null,
       }
     },
-    props: {
-      game: {
-        type: Game,
+    methods: {
+      selected (game) {
+        this.selectedGame = game
       },
     },
   }
