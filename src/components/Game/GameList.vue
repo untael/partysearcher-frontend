@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vm-game-list-item
+<vm-game-list-item
                 :game="game"
                 v-for="game in games"
                 :key="game.id"

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="demo-container">
-            <div class="demo-container__item" style="width: 400px;background-color: #405275">
+            <div class="demo-container__item" style="height: 300px; width: 600px;background-color: #405275">
                 <vm-game-list-explorer
                         :game="game"/>
             </div>

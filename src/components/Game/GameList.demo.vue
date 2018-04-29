@@ -27,10 +27,10 @@
       }
     },
     //need to see outcoming game on click
-    methods: {
-      selected (game) {
-        console.log('games= ', game)
-      },
-    },
+//    methods: {
+//      selected (game) {
+//        console.log('games= ', game)
+//      },
+//    },
   }
 </script>

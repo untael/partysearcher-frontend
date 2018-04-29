@@ -25,7 +25,7 @@ export default class RandomValueGenerator {
   }
 
   static getGame () {
-    var text = 'Game '
+    var text = 'Game: '
     var possible = '0123456789'
 
     for (var i = 0; i < 3; i++)
@@ -35,7 +35,7 @@ export default class RandomValueGenerator {
   }
 
   static getGameDescription () {
-    var text = 'Game Description '
+    var text = 'Game Description: \n '
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
     for (var i = 0; i < 15; i++)

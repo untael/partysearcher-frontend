@@ -1,5 +1,6 @@
-export default class Game {
-  name = '';
+export default class Stage {
+
+  title = '';
   description = '';
 
   constructor (data) {

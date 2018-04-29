@@ -1,7 +1,7 @@
 <template>
     <div class="block">
         <div class="header">
-            {{ game.name}}
+            {{game.name}}
         </div>
         <div class="main">
             {{game.description}}
@@ -22,7 +22,6 @@
         required: true,
       },
     },
-
   }
 
 </script>
@@ -41,5 +40,6 @@
         margin: 5px 5px 5px 5px;
         background-color: #76b4f2;
         color: white;
+        height: 200px;
     }
 </style>

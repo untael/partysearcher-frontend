@@ -1,20 +1,20 @@
 <template>
-    <div>
-        <div v-show="mode === 'one'">
+    <div class="content">
+        <div class="item" v-show="mode === 'one'">
             <vm-game-list
                     @click.native="mode='two'"
                     @selected="selected"
             />
         </div>
         <div v-show="mode === 'two'">
-            <div style="position:relative;">
-                <vm-game-display :game="selectedGame"/>
-                <div style="position:absolute; right: 0; bottom: 0;">
-                    <button
-                            @click="mode='one'"
-                    >Close
-                    </button>
-                </div>
+            <div class="display">
+                <vm-game-display
+                        :game="selectedGame"
+                />
+                <button style="position: absolute; top:0; right:0;"
+                        @click="mode='one'"
+                >X
+                </button>
             </div>
         </div>
     </div>
@@ -40,7 +40,28 @@
     methods: {
       selected (game) {
         this.selectedGame = game
+        console.log(game)
       },
     },
   }
 </script>
+
+<style>
+    .content {
+        position: relative;
+    }
+
+    .item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+    }
+
+    .display {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 250px;
+    }
+</style>
