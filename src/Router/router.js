@@ -7,7 +7,16 @@ Vue.use(Router)
 const router = new Router({
   routes: [
     VueComponentTree(require.context('./..', true, /.demo.vue$/), '/demo'),
-  ]
+
+    // {
+    //   path: '/app',
+    //   component: VmLayout,
+    //   children: [
+    //
+    //   ],
+    // },
+
+  ],
 })
 
 export default router

@@ -25,7 +25,6 @@
   import VmInput from '../Universal/Input'
   import VmTextArea from '../Universal/Textarea'
   import Game from './Game'
-  import SaveGame from '../../../SaveGame'
 
   export default {
     name: 'VmGameCreateForm',
@@ -40,7 +39,6 @@
     },
     methods: {
       submit () {
-        SaveGame.trySaveGame(game)
         console.log(this.game)
       },
     },
