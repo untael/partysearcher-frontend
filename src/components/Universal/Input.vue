@@ -1,15 +1,13 @@
 <template>
     <div>
-        <input
-                type="text"
-                v-model="name"
-                placeholder="Write Game Name"
+        <div style="margin-left: 5px; color: white; font-size: 16pt;">
+            Name
+        </div>
+        <input class="input-body"
+               type="text"
+               v-model="valueProxy"
+               placeholder="Write Game Name"
         >
-        <button
-                v-on:click="getName"
-        >
-            save
-        </button>
     </div>
 </template>
 
@@ -17,20 +15,29 @@
 
   export default {
     name: 'VmInput',
-    data () {
-      return {
-        name: null,
-      }
-    },
     props: {
       name: {
-      }
-    },
-    methods: {
-      getName () {
-        console.log(this.name)
-        this.$emit('writed', name)
+        type: String,
       },
     },
+    //to parent
+    computed: {
+      valueProxy: {
+        get(){
+          return this.name
+        },
+        set(name){
+          this.$emit('input', name)
+        }
+      }
+    }
   }
 </script>
+
+<style>
+    .input-body {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 5px;
+    }
+</style>

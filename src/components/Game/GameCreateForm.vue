@@ -1,18 +1,19 @@
 <template>
-    <div class="body    ">
-        <div class="input">
-            <input
-                    name="name"
+    <div class="gamecreateform-body">
+        <div>
+            <div class="text">
+                Save the game to DataBase
+            </div>
+            <vm-input
                     v-model="game.name"
             />
         </div>
-        <div class="input">
-        <textarea
-                name="description"
+        <div>
+        <vm-text-area
                 v-model="game.description"
         />
         </div>
-        <button
+        <button style="border: 1px solid black; border-radius: 5px;"
                 @click="submit()"
         >
             Save
@@ -35,16 +36,14 @@
     },
     data () {
       return {
-        game: new Game,
+        game: new Game ,
       }
     },
     methods: {
       submit () {
-//        console.log(this.game)
+        console.log(this.game)
         axios.post('http://localhost:3000/create-game',{
           game: this.game,
-//          name: this.game.name,
-//          description: this.game.description
         })
           .then(response => {
             console.log(response.data)
@@ -58,9 +57,16 @@
 </script>
 
 <style>
-    .body{
+    .gamecreateform-body{
+        width: 60%;
+        margin-left: 20%;
+        margin-top: 10%;
     }
-    .input{
-        width: 300px;
+    .text{
+        color: white;
+        font-size:36pt;
+        text-align: center;
+        margin-bottom: 10px;
+        -webkit-text-stroke: 1px black;
     }
 </style>

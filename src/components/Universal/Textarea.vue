@@ -1,36 +1,41 @@
 <template>
     <div>
-        <textarea
+        <div style="margin-left: 5px; color: white; font-size: 16pt;">
+            Description
+        </div>
+        <textarea class="textarea-body"
                 type="text"
-                v-model="description"
+                v-model="valueProxy"
                 placeholder="Write game description"
-                :description="description"
         />
-        <button
-                v-on:click="getDescription"
-        >
-            save
-        </button>
     </div>
 </template>
 
 <script>
   export default {
     name: 'VmTextarea',
-    data () {
-      return {
-        description: null,
+    props: {
+      description: {
       }
     },
-//    props: {
-//      description: {
-//        required: true,
-//      },
-//    },
-    methods: {
-      getDescription () {
-        console.log(this.description)
-      },
-    },
+    computed: {
+      //to parent
+      valueProxy: {
+        get(){
+          return this.description
+        },
+        set(description){
+          this.$emit('input', description)
+        }
+      }
+    }
   }
 </script>
+
+<style>
+    .textarea-body{
+        width: 100%;
+        min-height: 100px;
+        resize: none;
+    }
+</style>

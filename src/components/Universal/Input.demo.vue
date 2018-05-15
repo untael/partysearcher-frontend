@@ -26,6 +26,7 @@
       methods: {
         writed (name) {
           this.writedName = name
+          console.log('name', name)
         },
       },
     },
