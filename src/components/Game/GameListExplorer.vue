@@ -23,7 +23,6 @@
 <script>
   import VmGameDisplay from './GameDisplay'
   import VmGameList from './GameList'
-  import Game from './Game'
 
   export default {
     name: 'VmGameListExplorer',

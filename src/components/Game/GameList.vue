@@ -14,7 +14,6 @@
 <script>
   import VmGameListItem from './GameListItem.vue'
   import VmGameDisplay from '../Game/GameDisplay.vue'
-  import Game from './Game'
   import GameFactory from './GameFactory'
 
   export default {

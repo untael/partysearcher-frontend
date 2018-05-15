@@ -14,7 +14,6 @@
 </template>
 
 <script>
-  import Game from '../Game/Game'
 
   export default {
     name: 'VmInput',
@@ -25,7 +24,6 @@
     },
     props: {
       name: {
-
       }
     },
     methods: {

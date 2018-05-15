@@ -1,6 +1,6 @@
 <template>
     <div class="body">
-        fff
+        <router-view></router-view>
     </div>
 </template>
 
@@ -14,5 +14,8 @@
 <style>
     .body {
         background-color: lightskyblue;
+        min-height: 700px;
+        max-width: 100%;
+        overflow: hidden;
     }
 </style>
