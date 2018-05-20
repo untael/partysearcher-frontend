@@ -1,7 +1,9 @@
 <template>
-    <div class="bar transition">
-        <div class="bar__content">
-            <slot/>
+    <div class="bar-border">
+        <div class="bar transition">
+            <div class="bar__content">
+                <slot/>
+            </div>
         </div>
     </div>
 </template>
@@ -20,15 +22,19 @@
 </script>
 
 <style lang="scss">
+    .bar-border{
+        border: 2px solid white
+    }
     .bar {
-        border: 2px solid #218FFE;
+        border: 1px solid transparent;
         border-radius: 2px;
-        background-color: #218FFE;
         overflow: hidden;
     }
-    .bar:hover{
-        border: 2px solid white;
+
+    .bar:hover {
+        border: 1px solid white;
     }
+
     .transition {
         transition: 0.4s;
     }

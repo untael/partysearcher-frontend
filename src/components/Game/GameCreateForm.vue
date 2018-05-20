@@ -41,7 +41,7 @@
     },
     methods: {
       submit () {
-        console.log(this.game)
+//        console.log(this.game)
         axios.post('http://localhost:3000/create-game',{
           game: this.game,
         })
@@ -67,6 +67,5 @@
         font-size:36pt;
         text-align: center;
         margin-bottom: 10px;
-        -webkit-text-stroke: 1px black;
-    }
+        }
 </style>

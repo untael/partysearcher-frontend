@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import VueComponentTree from 'vue-component-tree'
 import VmLayout from '../components/Universal/Layout.vue'
 import VmGameCreateForm from '../components/Game/GameCreateForm.vue'
+import VmGameListExplorer from '../components/Game/GameListExplorer.vue'
+import VmGameList from '../components/Game/GameList.vue'
 
 Vue.use(Router)
 
@@ -18,6 +20,11 @@ const router = new Router({
           path: '/game',
           component: VmGameCreateForm,
         },
+        {
+          name: 'gamelist',
+          path: '/gamelist',
+          component: VmGameListExplorer,
+        }
       ],
       },
   ],

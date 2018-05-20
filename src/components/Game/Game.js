@@ -1,6 +1,7 @@
 export default class Game {
-  name = '';
-  description = '';
+
+  name = ''
+  description = ''
 
   constructor (data) {
     Object.assign(this, data)

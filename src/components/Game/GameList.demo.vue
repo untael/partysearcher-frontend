@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="demo-container">
-            <div class="demo-container__item" style="width: 400px; background-color: #405275;">
+            <div class="demo-container__item" style="width: 800px; background-color: #405275;">
                 <vm-game-list
                         :game="game"
                         @selected="selected"
@@ -27,10 +27,10 @@
       }
     },
     //need to see outcoming game on click
-//    methods: {
-//      selected (game) {
-//        console.log('games= ', game)
-//      },
-//    },
+    methods: {
+      selected (game) {
+        console.log('games= ', game)
+      },
+    },
   }
 </script>

@@ -13,7 +13,7 @@
 
 <style>
     .body {
-        background-color: lightskyblue;
+        background-color: #405275;
         min-height: 700px;
         max-width: 100%;
         overflow: hidden;

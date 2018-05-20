@@ -1,9 +1,15 @@
 <template>
     <div class="block">
-        <div class="header">
+        <div class="display-header-name">
+            Name:
+        </div>
+        <div class="display-name">
             {{game.name}}
         </div>
-        <div class="main">
+        <div class="display-header-description">
+            Description
+        </div>
+        <div class="display-description">
             {{game.description}}
         </div>
         <slot/>
@@ -13,13 +19,13 @@
 <script>
 
   import Game from './Game'
+  import axios from 'axios'
 
   export default {
     name: 'VmGameDisplay',
     props: {
       game: {
         type: Game,
-        required: true,
       },
     },
   }
@@ -27,18 +33,32 @@
 </script>
 
 <style>
-    .block{
-        background-color: #76b4f2;
+    .display-header-name{
+        border-bottom: 1px solid white;
+        font-size: 9pt;
+        color: lightgrey;
+        border-bottom: 1px solid white;
     }
-    .header {
+    .display-header-description{
+        border-bottom: 1px solid white;
+        font-size: 9pt;
+        color: lightgrey;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+    }
+    .block{
+        border: 2px solid white;
+        width: 60%;
+        margin-left: 20%;
+        margin-top: 10%;
+    }
+    .display-name {
         margin: 5px 5px 5px 5px;
-        background-color: #76b4f2;
         color: white;
     }
 
-    .main {
+    .display-description {
         margin: 5px 5px 5px 5px;
-        background-color: #76b4f2;
         color: white;
         height: 200px;
     }
