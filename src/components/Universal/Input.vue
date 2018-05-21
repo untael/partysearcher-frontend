@@ -4,7 +4,6 @@
             Name
         </div>
         <input class="input-body"
-               type="text"
                v-model="valueProxy"
                placeholder="Write Game Name"
         >
@@ -16,21 +15,22 @@
   export default {
     name: 'VmInput',
     props: {
-      name: {
+      value: {
         type: String,
+        required: true,
       },
     },
     //to parent
     computed: {
       valueProxy: {
-        get(){
-          return this.name
+        get () {
+          return this.value
         },
-        set(name){
-          this.$emit('input', name)
-        }
-      }
-    }
+        set (value) {
+          this.$emit('input', value)
+        },
+      },
+    },
   }
 </script>
 

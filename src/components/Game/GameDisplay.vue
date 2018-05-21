@@ -19,7 +19,6 @@
 <script>
 
   import Game from './Game'
-  import axios from 'axios'
 
   export default {
     name: 'VmGameDisplay',
@@ -48,9 +47,10 @@
     }
     .block{
         border: 2px solid white;
-        width: 60%;
-        margin-left: 20%;
-        margin-top: 10%;
+        width: 500px;
+        margin-top: 10px;
+        /*margin-left: 20%;*/
+        /*margin-top: 10%;*/
     }
     .display-name {
         margin: 5px 5px 5px 5px;

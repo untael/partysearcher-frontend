@@ -30,20 +30,20 @@
   import axios from 'axios'
 
   export default {
-    name: 'VmGameCreateForm',
+    name: 'VmGameUpdateForm',
     components: {
       VmInput,
       VmTextArea,
     },
-    data () {
-      return {
-        game: new Game,
-      }
+    props: {
+      game: {
+        type: Game,
+      },
     },
     methods: {
       submit () {
 //        console.log(this.game)
-        axios.post('http://localhost:3000/create-game', {
+        axios.post('http://localhost:3000/update-game', {
           game: this.game,
         })
           .then(response => {
@@ -52,7 +52,6 @@
           .catch(e => {
             this.errors.push(e)
           })
-        this.game = {};
       },
     },
   }
@@ -61,6 +60,7 @@
 <style>
     .gamecreateform-border {
         width: 600px;
+        height: 250px;
         border: solid 1px white;
         /*margin-left: 20%;*/
         /*margin-top: 10%;*/

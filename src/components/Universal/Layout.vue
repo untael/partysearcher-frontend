@@ -14,10 +14,8 @@
 <style>
     .body {
         background-color: #405275;
-        min-height: 700px;
-        max-width: 100%;
+        height: 5000px;
+        width: 100%;
         overflow: hidden;
-        margin-left:10%;
-        margin-right:10%;
     }
 </style>

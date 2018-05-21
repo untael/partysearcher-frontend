@@ -6,6 +6,7 @@
                 :key="game.id"
                 :name="game.name"
                 @click.native="$emit('selected', game)"
+                @sendGameData="$emit('showUpdateForm', game)"
         >
         </vm-game-list-item>
     </div>
@@ -24,6 +25,14 @@
     data () {
       return {
         games: [],
+      }
+    },
+    methods: {
+      sendGameDataToUpdate(game){
+        const payload = {
+          game: game,
+        }
+        this.emit('showUpdateForm', payload)
       }
     },
     created: function () {

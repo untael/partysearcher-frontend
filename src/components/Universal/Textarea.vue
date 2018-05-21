@@ -15,17 +15,19 @@
   export default {
     name: 'VmTextarea',
     props: {
-      description: {
+      value: {
+        type: String,
+        required: true,
       }
     },
     computed: {
       //to parent
       valueProxy: {
         get(){
-          return this.description
+          return this.value
         },
-        set(description){
-          this.$emit('input', description)
+        set(value){
+          this.$emit('input', value)
         }
       }
     }

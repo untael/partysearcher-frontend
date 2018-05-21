@@ -9,7 +9,7 @@
             <div class="game-list-update-button">
                 <button
                         style="width:70px"
-                        @click="updateGame()"
+                        @click.stop="$emit('sendGameData')"
                 >
                     Update
                 </button>
@@ -17,7 +17,7 @@
             <div class="game-list-delete-button">
                 <button
                         style="width:70px"
-                        @click="deleteGame()"
+                        @click.stop="deleteGame"
                 >
                     Delete
                 </button>
