@@ -1,12 +1,18 @@
 <template>
-    <div class="gamecreateform-border">
+    <div class="gamecreateform-container">
         <div class="gamecreateform-body">
             <div>
+                <div style="margin-left: 5px; color: white; font-size: 16pt;">
+                    Name
+                </div>
                 <vm-input
                         v-model="game.name"
                 />
             </div>
             <div>
+                <div style="margin-left: 5px; color: white; font-size: 16pt;">
+                    Description
+                </div>
                 <vm-text-area
                         v-model="game.description"
                 />
@@ -59,11 +65,13 @@
 </script>
 
 <style>
-    .gamecreateform-border {
-        width: 600px;
-        border: solid 1px white;
-        /*margin-left: 20%;*/
-        /*margin-top: 10%;*/
+    .gamecreateform-container {
+        align-items: center;
+        margin: auto;
+        border: 2px solid white;
+        background: #404b62;
+        width: 60%;
+        margin: 100px auto;
     }
 
     .gamecreateform-body {

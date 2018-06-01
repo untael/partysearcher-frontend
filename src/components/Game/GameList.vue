@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="gamelist-container">
         <vm-game-list-item
                 :game="game"
                 v-for="game in games"
@@ -28,15 +28,15 @@
       }
     },
     methods: {
-      sendGameDataToUpdate(game){
+      sendGameDataToUpdate (game) {
         const payload = {
           game: game,
         }
         this.emit('showUpdateForm', payload)
-      }
+      },
     },
     created: function () {
-      axios.get('http://localhost:3002/gamelist', {
+      axios.get('http://localhost:3000/gamelist', {
         game: this.game,
       })
         .then(response => {
@@ -49,3 +49,11 @@
     },
   }
 </script>
+<style>
+    .gamelist-container {
+        /*border: 1px solid white;*/
+        display: flex;
+        flex-direction: column;
+        background: #323c53;
+    }
+</style>

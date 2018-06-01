@@ -1,12 +1,7 @@
 <template>
     <div>
-        <div style="margin-left: 5px; color: white; font-size: 16pt;">
-            Description
-        </div>
         <textarea class="textarea-body"
-                type="text"
                 v-model="valueProxy"
-                placeholder="Write game description"
         />
     </div>
 </template>
@@ -17,7 +12,6 @@
     props: {
       value: {
         type: String,
-        required: true,
       }
     },
     computed: {

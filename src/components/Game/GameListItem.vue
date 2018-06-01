@@ -72,6 +72,7 @@
         margin-bottom: 5px;
         width: 300px;
         margin-top: 10px;
+        background: #242d44;
     }
 
     .game-list-update-button {
