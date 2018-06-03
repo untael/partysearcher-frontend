@@ -30,8 +30,15 @@
 
 <style>
     .textarea-body{
-        width: 100%;
         min-height: 100px;
         resize: none;
+        width: 100%;
+        color: white;
+        margin: auto;
+        background: #242d44;
+        border: 0px;
+        border-radius: 4px;
+        text-indent: 10px;
+        padding: 0px;
     }
 </style>

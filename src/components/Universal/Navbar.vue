@@ -29,7 +29,7 @@
                 </div>
                 <div class="navbar-bar">
                     <router-link
-                            :to="{name: 'gamelist'}"
+                            :to="{name: 'gamecreateroom'}"
                     >
                         <vm-bar>
                             Look for party

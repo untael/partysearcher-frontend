@@ -19,12 +19,18 @@
 </script>
 
 <style>
+    @font-face {
+        font-family: lfg2;
+        src: url(../../Fonts/lfg2.ttf);
+    }
+
     .layout-body {
         background-color: #242d44;
         height: 5000px;
         max-width: 960px;
         margin: 0 auto;
         overflow: hidden;
+        font-family: lfg2;
 
     }
     .layout-navbar{

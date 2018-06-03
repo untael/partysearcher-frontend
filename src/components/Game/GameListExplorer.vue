@@ -28,14 +28,14 @@
                 </vm-bar>
             </div>
             <div style="display: flex; margin-top: 10px; ">
-                <div style="border-right: 1px solid white;">
+                <div>
                     <vm-game-list
                             @selected="selected"
                             @showUpdateForm="showUpdateForm"
                             @click.native="mode='two'"
                     />
                 </div>
-                <div style="width: 100%">
+                <div style="margin: 10px auto; width: 100%;">
                     <vm-game-display
                             :game="selectedGame"
                     />
@@ -59,7 +59,7 @@
                 </vm-bar>
             </div>
             <div style="display: flex; margin-top: 10px; ">
-                <div style="border-right: 1px solid white;">
+                <div>
                     <vm-game-list
                             @selected="selected"
                             @showUpdateForm="showUpdateForm"
@@ -91,7 +91,7 @@
                 </vm-bar>
             </div>
             <div style="display: flex; margin-top: 10px; ">
-                <div style="border-right: 1px solid white;">
+                <div>
                     <vm-game-list
                             @selected="selected"
                             @showUpdateForm="showUpdateForm"

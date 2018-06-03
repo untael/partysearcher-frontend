@@ -1,6 +1,6 @@
 <template>
-    <div class="gamecreateform-container">
-        <div class="gamecreateform-body">
+    <div class="gameupdateform-container">
+        <div class="gameupdateform-body">
             <div>
                 <div style="margin-left: 5px; color: white; font-size: 16pt;">
                     Name
@@ -10,19 +10,19 @@
                 />
             </div>
             <div>
-                <div style="margin-left: 5px; color: white; font-size: 16pt;">
+                <div style="margin-left: 5px; margin-top: 5px; color: white; font-size: 16pt;">
                     Description
                 </div>
                 <vm-text-area
                         v-model="game.description"
                 />
             </div>
-            <div style="text-align:right;">
-                <button
-                        @click="submit()"
+            <div  style="margin-top: 5px;">
+                <vm-bar
+                        @click.native="submit()"
                 >
-                    Save
-                </button>
+                    Update game in database
+                </vm-bar>
             </div>
         </div>
     </div>
@@ -34,10 +34,12 @@
   import VmTextArea from '../Universal/Textarea'
   import Game from './Game'
   import axios from 'axios'
+  import VmBar from '../Universal/Bar.vue'
 
   export default {
     name: 'VmGameUpdateForm',
     components: {
+      VmBar,
       VmInput,
       VmTextArea,
     },
@@ -64,16 +66,17 @@
 </script>
 
 <style>
-    .gamecreateform-container {
+    .gameupdateform-container {
         align-items: center;
         margin: auto;
-        border: 2px solid white;
+        border: 4px solid #404b62;
+        border-radius: 4px;
         background: #404b62;
         width: 60%;
         margin: 100px auto;
     }
 
-    .gamecreateform-body {
+    .gameupdateform-body {
         margin: 5px 5px 5px 5px;
     }
 </style>

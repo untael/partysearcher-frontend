@@ -4,28 +4,8 @@
             <v-select
                     class="select_body"
                     v-model="valueProxy"
-                    :options="getGameNames1"
+                    :options="gameNames"
             />
-            <button
-                    @click="getGameNames"
-            >
-                fdsafasd
-            </button>
-            <!--<select-->
-            <!--class="select_body"-->
-            <!--v-model="valueProxy"-->
-            <!--size="3"-->
-            <!--&gt;-->
-            <!--<option disabled>Choose the game</option>-->
-            <!--<option-->
-            <!--v-for="game in games"-->
-            <!--:game="game"-->
-            <!--:key="game.id"-->
-            <!--:name="game.name"-->
-            <!--&gt;-->
-            <!--{{game.name}}-->
-            <!--</option>-->
-            <!--</select>-->
         </div>
     </div>
 </template>
@@ -50,26 +30,25 @@
         type: Game,
       },
     },
-    methods: {
-      getGameNames () {
-        let gameName = null
-        this.games.forEach(function (game) {
-          console.log(game)
-          gameName = game
-        })
-        return gameName
-      },
-    },
+//    methods: {
+//      getGameNames () {
+//        let gameName = null
+//        this.games.forEach(function (game) {
+//          gameName = game.name
+//          console.log(gameName)
+//        })
+//        return gameName
+//      },
+//    },
     computed: {
-      getGameNames1 () {
+      gameNames () {
         let gameName = null
+        let gameNames = []
         this.games.forEach(function (game) {
-          console.log(game)
-          gameName = game
+          gameName = game.name
+          gameNames.push(gameName)
         })
-        return {
-          label: gameName,
-        }
+        return gameNames
       },
       valueProxy: {
         get () {

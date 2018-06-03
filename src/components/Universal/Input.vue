@@ -33,6 +33,10 @@
     .input-body {
         width: 100%;
         height: 40px;
-        margin-bottom: 5px;
+        background: #242d44;
+        border: 0px;
+        border-radius: 4px;
+        color: white;
+        text-indent: 10px;
     }
 </style>

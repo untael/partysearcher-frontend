@@ -2,7 +2,7 @@
     <div style="width: 420px; display: flex;">
         <div class="game-list-item-block">
             <vm-bar>
-                {{game.name}}
+                {{gameRoom.username}}
             </vm-bar>
         </div>
         <div style="margin: auto auto auto 0px; display: flex">
@@ -11,15 +11,7 @@
                         class="gamelistitem-update-button"
                         @click.stop="$emit('sendGameData')"
                 >
-                    Edit
-                </button>
-            </div>
-            <div>
-                <button
-                        class="gamelistitem-delete-button"
-                        @click.stop="deleteGame"
-                >
-                    X
+                    Connect
                 </button>
             </div>
         </div>
@@ -28,14 +20,12 @@
 
 <script>
   import VmBar from '../Universal/Bar'
-  import VmGameDisplay from '../Game/GameDisplay.vue'
-  import Game from './Game'
   import axios from 'axios'
+  import GameRoom from './GameRoom'
 
   export default {
-    name: 'VmGameListItem',
+    name: 'VmGameRoomListItem',
     components: {
-      VmGameDisplay,
       VmBar,
     },
     data () {
@@ -44,24 +34,12 @@
       }
     },
     props: {
-      game: {
-        type: Game,
+      gameRoom: {
+        type: GameRoom,
         required: true,
       },
     },
     methods: {
-      deleteGame () {
-//        console.log(this.game)
-        axios.post('http://localhost:3000/delete-game',{
-          game: this.game,
-        })
-          .then(response => {
-            console.log(response.data)
-          })
-          .catch( e => {
-            this.errors.push(e)
-          })
-      },
     },
   }
 </script>
@@ -76,19 +54,9 @@
     }
 
     .gamelistitem-update-button {
-             width: 100%;
-             margin: auto;
-             color: white;
-             background: #242d44;
-             border: 1px solid white;
-             border-radius: 4px;
-             font-family: lfg2;
-             font-size: 16pt;
-         }
-    .gamelistitem-delete-button {
         width: 100%;
-        margin:auto 2px auto;
-        color: red;
+        margin: auto;
+        color: white;
         background: #242d44;
         border: 1px solid white;
         border-radius: 4px;

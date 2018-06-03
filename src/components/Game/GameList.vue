@@ -52,8 +52,13 @@
 <style>
     .gamelist-container {
         /*border: 1px solid white;*/
+        width: 420px;
         display: flex;
         flex-direction: column;
-        background: #323c53;
+        border: 0px;
+        border-radius: 4px;
+        background: #404b62;
+        margin-left: 10px;
     }
+
 </style>

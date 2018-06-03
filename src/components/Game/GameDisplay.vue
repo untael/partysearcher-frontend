@@ -1,5 +1,5 @@
 <template>
-    <div class="display-block">
+    <div class="display-container">
         <div class="display-header-name">
             Name:
         </div>
@@ -45,10 +45,12 @@
         border-top: 1px solid white;
         border-bottom: 1px solid white;
     }
-    .display-block{
-        border: 2px solid white;
+    .display-container{
+        border: 5px solid #404b62;
+        border-radius: 4px;
         width: 95%;
         margin: auto;
+        background: #404b62;
     }
     .display-name {
         margin: 5px 5px 5px 5px;

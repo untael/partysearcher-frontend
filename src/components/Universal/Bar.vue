@@ -25,10 +25,11 @@
     .bar-border{
         border: 2px solid white
     }
-    .bar {
+    .bar{
         border: 1px solid transparent;
         border-radius: 2px;
         overflow: hidden;
+        background: #242d44;
     }
 
     .bar:hover {
@@ -40,9 +41,9 @@
     }
 
     .bar__content {
-        margin: 15px 20px;
+        margin: 5px 5px;
         text-align: center;
         color: white;
-        font-size: 14pt;
+        font-size: 18pt;
     }
 </style>

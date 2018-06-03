@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="gameroom_block" v-show="mode === 'one'">
+        <div class="gameroom_container" v-show="mode === 'one'">
             <div style="color: white; font-size: 30pt; text-align: center; margin-top: 50px;">
                 Write your nickname
             </div>
@@ -11,21 +11,31 @@
                 <p/>
                 - Some rule
             </div>
-                <div style="display: flex;">
-                    <vm-input
-                            class="gameroom_input"
-                            v-model="gameRoom.username"
-                    />
-                    <button
-                            class="gameroom_button"
-                            @click="mode='two'"
-                    >
-                        Next step
-                    </button>
+            <div style="display: flex;  margin-top: 100px;">
+                <vm-input
+                        class="gameroom_input"
+                        v-model="gameRoom.username"
+                />
+                <button
+                        class="gameroom_button"
+                        @click="mode='two'"
+                >
+                    Next
+                </button>
             </div>
         </div>
-        <div class="gameroom_block" v-show="mode === 'two'">
-            <div style="display: flex;">
+        <div class="gameroom_container" v-show="mode === 'two'">
+            <div style="color: white; font-size: 30pt; text-align: center; margin-top: 50px;">
+                Choose game what you wanna play
+            </div>
+            <div style="color: white; font-size: 12pt; text-align: center; margin-top: 50px;">
+                - Choose game what you wanna play
+                <p/>
+                - Some rule
+                <p/>
+                - Some rule
+            </div>
+            <div style="display: flex; margin-top: 100px;">
                 <vm-game-select
                         class="gameroom_input"
                         v-model="gameRoom.game"
@@ -34,23 +44,36 @@
                         class="gameroom_button"
                         @click="mode='three'"
                 >
-                    Next step
+                    Next
                 </button>
             </div>
         </div>
-        <div class="gameroom_block" v-show="mode === 'three'">
-            <div>
+        <div class="gameroom_container" v-show="mode === 'three'">
+            <div style="color: white; font-size: 30pt; text-align: center; margin-top: 50px;">
+                Write your nickname
+            </div>
+            <div style="color: white; font-size: 12pt; text-align: center; margin-top: 50px;">
+                - Nickname can contain a-Z,0-9 and max size is 20 symbols
+                <p/>
+                - Some rule
+                <p/>
+                - Some rule
+            </div>
+            <div style="margin-top: 100px;">
                 <vm-text-area
                         class="gameroom_textarea"
                         v-model="gameRoom.description"
                 />
             </div>
-            <button
-                    style="height: 40px; width: 20%; margin-left: 40%;"
-                    @click="submit(), mode='one'"
-            >
-                Find party
-            </button>
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <button
+                        class="gameroom_button"
+                        style="height: 100%;"
+                        @click="submit(), mode='one'"
+                >
+                    Find party
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -89,7 +112,7 @@
           .catch(e => {
             this.errors.push(e)
           })
-        this.gameRoom = {};
+        this.gameRoom = {}
       },
     },
   }
@@ -97,28 +120,37 @@
 </script>
 
 <style>
-    .gameroom_block {
-        background: dodgerblue;
-        width: 500px;
+    .gameroom_container {
         height: 600px;
-        border: 1px solid white;
-        border-radius: 3px;
+        align-items: center;
+        margin: auto;
+        border: 2px solid #404b62;
+        border-radius: 4px;
+        background: #404b62;
+        width: 60%;
+        margin: 100px auto;
     }
 
     .gameroom_input {
-        width: 80%;
-        margin-left: 15px;
-        margin-top: 150px;
+        min-width: 80%;
+        margin: auto;
+
     }
 
     .gameroom_textarea {
-        width: 95%;
-        margin-left: 2.5%;
-        margin-top: 70%;
+        width: 80%;
+        margin: auto;
     }
 
     .gameroom_button {
         height: 40px;
-        margin-top: 150px;
+        margin: 5px auto;
+        color: white;
+        background: #242d44;
+        border: 0px;
+        border-radius: 4px;
+        font-family: lfg2;
+        font-size: 18pt;
+        width: 70px;
     }
 </style>
