@@ -1,5 +1,5 @@
 <template>
-    <img src="../../Images/lfg.png"
+    <img src="../../Images/lfg3.png"
          alt="Logo"
     >
 </template>

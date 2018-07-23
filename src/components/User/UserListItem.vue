@@ -2,44 +2,36 @@
     <div style="width: 420px; display: flex;">
         <div class="game-list-item-block">
             <vm-bar
-                    @click.native="$emit('selected', gameRoom)"
+                    @click.native="$emit('selected', user)"
             >
-                {{gameRoom.username}}
-                <div class="game-room-list-item-game">
-                    {{gameRoom.game}}
-                </div>
+                {{user.username}}
             </vm-bar>
         </div>
         <!--<div style="margin: auto auto auto 0px; display: flex">-->
-            <!--<div>-->
-                <!--<button-->
-                        <!--class="gamelistitem-update-button"-->
-                        <!--@click.stop="$emit('sendGameRoomData')"-->
-                <!--&gt;-->
-                    <!--Connect-->
-                <!--</button>-->
-            <!--</div>-->
+        <!--<div>-->
+        <!--<button-->
+        <!--class="gamelistitem-update-button"-->
+        <!--@click.stop="$emit('sendGameRoomData')"-->
+        <!--&gt;-->
+        <!--Connect-->
+        <!--</button>-->
+        <!--</div>-->
         <!--</div>-->
     </div>
 </template>
 
 <script>
   import VmBar from '../Universal/Bar'
-  import GameRoom from './GameRoom'
+  import User from './User'
 
   export default {
-    name: 'VmGameRoomListItem',
+    name: 'VmUserListItem',
     components: {
       VmBar,
     },
-    data () {
-      return {
-        mode: 'one',
-      }
-    },
     props: {
-      gameRoom: {
-        type: GameRoom,
+      user: {
+        type: User,
         required: true,
       },
     },

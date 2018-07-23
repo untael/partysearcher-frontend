@@ -66,13 +66,17 @@
                 />
             </div>
             <div style="display: flex; align-items: center; justify-content: center;">
-                <button
-                        class="gameroom_button"
-                        style="height: 100%;"
-                        @click="submit(), mode='one'"
+                <router-link
+                        :to="{name: 'gameroomlist'}"
                 >
-                    Find party
-                </button>
+                    <button
+                            class="gameroom_button"
+                            style="height: 100%;"
+                            @click="submit(), sendGameName(), mode='one'"
+                    >
+                        Find party
+                    </button>
+                </router-link>
             </div>
         </div>
     </div>
@@ -100,9 +104,13 @@
         mode: 'one',
       }
     },
+    props: {
+      searchingGame: {
+        type: String,
+      },
+    },
     methods: {
       submit () {
-        console.log(this.game)
         axios.post('http://localhost:3000/create-gameroom', {
           gameRoom: this.gameRoom,
         })
@@ -112,8 +120,12 @@
           .catch(e => {
             this.errors.push(e)
           })
-        this.gameRoom = {}
       },
+      sendGameName (){
+        this.game = this.gameRoom.game;
+        this.$emit('gameName', this.game)
+        console.log(this.game)
+      }
     },
   }
 

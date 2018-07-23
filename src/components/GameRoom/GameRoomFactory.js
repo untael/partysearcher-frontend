@@ -1,8 +1,8 @@
 import GameRoom from './GameRoom'
 import RandomValueGenerator from '../../additional/RandomValueGenerator'
 
-export default class GameFactory {
-  static getDefaultGame () {
+export default class GameRoomFactory {
+  static getDefaultGameRoom () {
     return new GameRoom({
       username: RandomValueGenerator.getString(),
       game: RandomValueGenerator.getGame(),

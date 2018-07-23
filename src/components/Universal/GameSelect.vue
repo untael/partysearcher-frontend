@@ -1,13 +1,13 @@
 <template>
+  <div>
     <div>
-        <div>
-            <v-select
-                    class="select_body"
-                    v-model="valueProxy"
-                    :options="gameNames"
-            />
-        </div>
+      <v-select
+        class="select__body"
+        v-model="valueProxy"
+        :options="gameNames"
+      />
     </div>
+  </div>
 </template>
 
 <script>
@@ -64,7 +64,7 @@
         game: this.game,
       })
         .then(response => {
-          console.log(response.data)
+//          console.log(response.data)
           this.games = response.data.map(gameData => new Game(gameData))
         })
         .catch(e => {
@@ -75,9 +75,11 @@
   }
 </script>
 
-<style>
-    .select_body {
-        width: 100%;
-        background: white;
+<style lang="scss">
+  .select {
+    &__body {
+      width: 100%;
+      background: white;
     }
+  }
 </style>

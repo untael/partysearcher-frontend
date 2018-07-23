@@ -1,6 +1,14 @@
 export default class User {
-  id = number,
-  nickname = string,
-  age = number,
-  voice = boolean,
+  id = ''
+  username = ''
+  password = ''
+  passwordConfirm = ''
+  age = ''
+  voice = false
+  sex = false
+
+
+  constructor (data) {
+    Object.assign(this, data)
+  }
 }

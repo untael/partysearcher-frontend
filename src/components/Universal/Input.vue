@@ -1,9 +1,10 @@
 <template>
-    <div>
-        <input class="input-body"
-               v-model="valueProxy"
-        >
-    </div>
+  <div>
+    <input
+      class="input__body"
+      v-model="valueProxy"
+    >
+  </div>
 </template>
 
 <script>
@@ -29,14 +30,16 @@
   }
 </script>
 
-<style>
-    .input-body {
-        width: 100%;
-        height: 40px;
-        background: #242d44;
-        border: 0px;
-        border-radius: 4px;
-        color: white;
-        text-indent: 10px;
+<style lang="scss">
+  .input {
+    &__body {
+      width: 100%;
+      height: 40px;
+      background: #242d44;
+      border: 0px;
+      border-radius: 4px;
+      color: white;
+      text-indent: 10px;
     }
+  }
 </style>

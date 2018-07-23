@@ -157,7 +157,6 @@
     .content {
         position: relative;
         align-items: center;
-        margin: 100px 0px 5px 0px;
         background: #404b62;
         width: 100%;
         margin: 100px auto;

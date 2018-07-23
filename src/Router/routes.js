@@ -4,9 +4,10 @@ import VueComponentTree from 'vue-component-tree'
 import VmLayout from '../components/Universal/Layout.vue'
 import VmGameCreateForm from '../components/Game/GameCreateForm.vue'
 import VmGameListExplorer from '../components/Game/GameListExplorer.vue'
-import VmGameList from '../components/Game/GameList.vue'
 import VmGameRoomCreateForm from '../components/GameRoom/GameRoomCreateForm.vue'
-
+import VmGameRoomListExplorer from '../components/GameRoom/GameRoomListExplorer.vue'
+import VmRegisterForm from '../components/User/RegisterForm.vue'
+import VmLoginForm from '../components/User/LoginForm.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -30,6 +31,21 @@ const router = new Router({
           name: 'gamecreateroom',
           path: '/createroom',
           component: VmGameRoomCreateForm,
+        },
+        {
+          name: 'gameroomlist',
+          path: '/gameroomlist',
+          component: VmGameRoomListExplorer,
+        },
+        {
+          name: 'registerform',
+          path: '/register',
+          component: VmRegisterForm,
+        },
+        {
+          name: 'loginform',
+          path: '/login',
+          component: VmLoginForm,
         }
       ],
       },
