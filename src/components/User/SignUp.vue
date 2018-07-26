@@ -1,15 +1,15 @@
 <template>
-    <div class="register-form-body">
-        <div class="register-form-container">
-            <div class="register-form-label">
+    <div class="signup-form__body">
+        <div class="signup-form__container">
+            <div class="signup-form__label">
                 Your nickname
             </div>
             <vm-input
                     v-model="user.username"
             />
         </div>
-        <div class="register-form-container">
-            <div class="register-form-label">
+        <div class="signup-form__container">
+            <div class="signup-form__label">
                 Your password
             </div>
             <vm-input
@@ -17,22 +17,22 @@
                     v-model="user.password"
             />
         </div>
-        <div class="register-form-container">
-            <div class="register-form-label">
+        <div class="signup-form__container">
+            <div class="signup-form__label">
                 Confirm your password
             </div>
             <vm-input
                     id="passwordConfirm"
                     v-model="user.passwordConfirm"
             />
-            <div class="register-form-label-error" id="errorMessage">
+            <div class="signup-form__label__error" id="errorMessage">
                 Passwords do not match
             </div>
         </div>
-        <div class="register-form-container-button">
+        <div class="signup-form__container__button">
             <button
                     @click="submit()"
-                    class="register-form-submit-button">
+                    class="signup-form__submit-button">
                 Submit
             </button>
         </div>
@@ -44,8 +44,9 @@
     import VmInput from '../Universal/Input.vue'
     import VmBar from '../Universal/Bar.vue'
     import axios from 'axios'
+
   export default {
-    name: 'VmRegisterForm',
+    name: 'VmSignUpForm',
     components: {
       VmBar,
       VmInput
@@ -65,7 +66,7 @@
         }
         else {
           console.log(this.user)
-          axios.post('http://localhost:3000/register', {
+          axios.post('http://localhost:3000/signup', {
             user: this.user,
           })
             .then(response => {
@@ -82,38 +83,39 @@
 </script>
 
 <style lang="scss">
-    .register-form-body{
-        background-color: #404b62;
-        margin: 100px auto;
-        display: flex;
-        flex-direction: row;
-        border-radius: 30px;
-        justify-content: center;
-    }
-    .register-form-container{
-        margin: 40px 25px auto;
-        width: 200px;
-    }
-
-    .register-form-container-button{
-        margin: 40px 15px 30px;
-        width: 150px;
-    }
-    .register-form-submit-button{
-        background: #00aeee;
-        width: 150px;
-        border: 0px;
-        height:40px;
-        margin-top: 25px;
-    }
-    .register-form-label{
-        color: white;
-        height: 25px;
-    }
-    .register-form-label-error{
-        margin-top: 5px;
-        color: red;
-        height: 25px;
-        display: none;
+    .signup-form{
+        &__body{
+            background-color: #404b62;
+            margin: 100px auto;
+            display: flex;
+            flex-direction: row;
+            border-radius: 30px;
+            justify-content: center;
+        }
+        &__container{
+            margin: 40px 15px auto;
+            width: 200px;
+            &__button{
+                margin: 40px 15px 30px;
+                width: 150px;
+            }
+        }
+        &__submit-button{
+            background: #00aeee;
+            width: 150px;
+            border: 0px;
+            height:40px;
+            margin-top: 25px;
+        }
+        &__label{
+            color: white;
+            height: 25px;
+            &__error{
+                margin-top: 5px;
+                color: red;
+                height: 25px;
+                display: none;
+            }
+        }
     }
 </style>

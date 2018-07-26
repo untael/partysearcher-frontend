@@ -36,7 +36,7 @@
       },
     },
     created: function () {
-      axios.get('http://localhost:3000/gamelist', {
+      axios.get('http://localhost:3000/api/gamelist', {
         game: this.game,
       })
         .then(response => {

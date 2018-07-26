@@ -59,7 +59,7 @@
           </div>
           <div class="navbar__bar">
             <router-link
-              :to="{name: 'registerform'}"
+              :to="{name: 'signupform'}"
             >
               <vm-bar
                 class="navbar__bar-content"
@@ -74,10 +74,39 @@
           />
         </div>
       </div>
-      <div class="navbar__right">
+      <div class="navbar__right" v-if="token">
         <vm-user-profile-display
           class="navbar__right__profile"
         />
+      </div>
+      <div class="navbar__right-unautorized" v-if="!token">
+        <div class="navbar__right-unautorized__buttons">
+          <div class="navbar__bar">
+            <router-link
+              :to="{name: 'loginform'}"
+            >
+              <vm-bar
+                class="navbar__bar-content"
+              >
+                Login
+              </vm-bar>
+            </router-link>
+          </div>
+          <div class="navbar__bar">
+            <router-link
+              :to="{name: 'signupform'}"
+            >
+              <vm-bar
+                class="navbar__bar-content"
+              >
+                Register
+              </vm-bar>
+            </router-link>
+          </div>
+        </div>
+        <div class="navbar__right-unautorized__message">
+          Registered members have more filters and capabilities
+        </div>
       </div>
     </div>
   </div>
@@ -89,15 +118,28 @@
   import VmLogo from './Logo.vue'
   import VmUserProfileDisplay from '../User/UserProfileDisplay.vue'
   import VmInput from './Input.vue'
+  import User from '../User/User'
 
   export default {
+    name: 'VmNavbar',
     components: {
       VmInput,
       VmUserProfileDisplay,
       VmLogo,
       VmBar,
     },
-    name: 'VmNavbar',
+    data () {
+      return {
+        user: new User,
+        token: false,
+      }
+    },
+    created () {
+//      console.log(localStorage.getItem('token'))
+      if (localStorage.getItem('token') !== null) {
+        this.token = true;
+      }
+    },
   }
 </script>
 
@@ -106,7 +148,6 @@
   .navbar {
     &__bar-content.bar .bar-content {
       font-size: 12pt;
-
     }
 
     &__body {
@@ -144,6 +185,26 @@
         display: block;
         float: left;
         margin-left: 10px;
+      }
+    }
+
+    &__right-unautorized {
+      width: 200px;
+      height: 100%;
+      /*display: flex;*/
+      /*flex: 1 1 auto;*/
+      align-items: center;
+      margin-right: 10px;
+      margin-left: 10px;
+      border-left: 1px solid #007fad;
+      &__buttons{
+        display: flex;
+        margin: 10px 10px auto;
+      }
+      &__message{
+        color: white;
+        text-align: center;
+        margin-top: 5px;
       }
     }
 

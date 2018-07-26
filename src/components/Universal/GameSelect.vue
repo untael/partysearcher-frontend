@@ -59,7 +59,7 @@
         },
       },
     },
-    created: function () {
+    created () {
       axios.get('http://localhost:3000/gamelist', {
         game: this.game,
       })
