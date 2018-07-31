@@ -1,15 +1,15 @@
 <template>
-    <div class="gamelist-container">
-        <vm-game-list-item
-                :game="game"
-                v-for="game in games"
-                :key="game.id"
-                :name="game.name"
-                @click.native="$emit('selected', game)"
-                @sendGameData="$emit('showUpdateForm', game)"
-        >
-        </vm-game-list-item>
-    </div>
+  <div class="gamelist-container">
+    <vm-game-list-item
+      :game="game"
+      v-for="game in games"
+      :key="game.id"
+      :name="game.name"
+      @click.native="$emit('selected', game)"
+      @sendGameData="$emit('showUpdateForm', game)"
+    >
+    </vm-game-list-item>
+  </div>
 </template>
 
 <script>
@@ -36,7 +36,7 @@
       },
     },
     created: function () {
-      axios.get('http://localhost:3000/api/gamelist', {
+      axios.post('http://localhost:3000/api/gamelist', {
         game: this.game,
       })
         .then(response => {
@@ -50,15 +50,15 @@
   }
 </script>
 <style>
-    .gamelist-container {
-        /*border: 1px solid white;*/
-        width: 420px;
-        display: flex;
-        flex-direction: column;
-        border: 0px;
-        border-radius: 4px;
-        background: #404b62;
-        margin-left: 10px;
-    }
+  .gamelist-container {
+    /*border: 1px solid white;*/
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    border: 0px;
+    border-radius: 4px;
+    background: #404b62;
+    margin-left: 10px;
+  }
 
 </style>

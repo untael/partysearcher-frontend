@@ -29,6 +29,12 @@
           class="user-profile-display__logout-button"
           @click="logout"
         >
+          Edit
+        </button>
+        <button
+          class="user-profile-display__logout-button"
+          @click="logout"
+        >
           Logout
         </button>
       </div>
@@ -64,16 +70,17 @@
       },
       logout () {
         localStorage.clear()
+        this.$bus.$emit('logout', 'User logout')
       },
     },
     created () {
       axios.post('http://localhost:3000/api/profile-data', {
+        token: localStorage.getItem('token'),
         userId: localStorage.getItem('userId'),
       })
         .then(response => {
           this.user = response.data
           console.log(response.data)
-          console.log(this.user)
         })
         .catch(e => {
           this.errors.push(e)

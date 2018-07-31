@@ -74,12 +74,12 @@
           />
         </div>
       </div>
-      <div class="navbar__right" v-if="token">
+      <div class="navbar__right" v-if="isLogged === true">
         <vm-user-profile-display
           class="navbar__right__profile"
         />
       </div>
-      <div class="navbar__right-unautorized" v-if="!token">
+      <div class="navbar__right-unautorized" v-if="isLogged === false">
         <div class="navbar__right-unautorized__buttons">
           <div class="navbar__bar">
             <router-link
@@ -132,14 +132,31 @@
       return {
         user: new User,
         token: false,
+        isLogged: this.checkIfIsLogged()
       }
     },
     created () {
 //      console.log(localStorage.getItem('token'))
-      if (localStorage.getItem('token') !== null) {
-        this.token = true;
-      }
+      this.$bus.$on('logged', () => {
+        this.isLogged = this.checkIfIsLogged()
+      })
+      this.$bus.$on('logout', () => {
+        this.isLogged = this.checkIfIsLogged()
+      })
+//      if (localStorage.getItem('token') !== null) {
+//        this.token = true
+//      }
     },
+    methods: {
+      checkIfIsLogged () {
+        let token = localStorage.getItem('token')
+        if (token) {
+          return true
+        } else {
+          return false
+        }
+      },
+    }
   }
 </script>
 
@@ -197,11 +214,11 @@
       margin-right: 10px;
       margin-left: 10px;
       border-left: 1px solid #007fad;
-      &__buttons{
+      &__buttons {
         display: flex;
         margin: 10px 10px auto;
       }
-      &__message{
+      &__message {
         color: white;
         text-align: center;
         margin-top: 5px;
