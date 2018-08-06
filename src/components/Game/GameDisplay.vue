@@ -1,19 +1,21 @@
 <template>
-    <div class="display-container">
-        <div class="display-header-name">
-            Name:
-        </div>
-        <div class="display-name">
-            {{game.name}}
-        </div>
-        <div class="display-header-description">
-            Description
-        </div>
-        <div class="display-description">
-            {{game.description}}
-        </div>
-        <slot/>
+  <div class="display__body">
+    <div class="display__container">
+      <div class="display__header-name">
+        Name:
+      </div>
+      <div class="display__name">
+        {{game.name}}
+      </div>
+      <div class="display__header-description">
+        Description
+      </div>
+      <div class="display__description">
+        {{game.description}}
+      </div>
+      <slot/>
     </div>
+  </div>
 </template>
 
 <script>
@@ -31,36 +33,44 @@
 
 </script>
 
-<style>
-    .display-header-name{
-        border-bottom: 1px solid white;
-        font-size: 9pt;
-        color: lightgrey;
-        border-bottom: 1px solid white;
+<style lang="scss">
+  .display {
+    &__body {
+      min-width: 400px;
     }
-    .display-header-description{
-        border-bottom: 1px solid white;
-        font-size: 9pt;
-        color: lightgrey;
-        border-top: 1px solid white;
-        border-bottom: 1px solid white;
+    &__container {
+      border-radius: 2px;
+      margin: 10px 10px;
+      background: black;
     }
-    .display-container{
-        border: 5px solid #404b62;
-        border-radius: 4px;
-        width: 95%;
-        margin: auto;
-        background: #404b62;
+    &__header-name {
+      border: 4px solid black;
+      background: #212121;
+      font-size: 14pt;
+      color: white;
+      margin: 10px auto;
     }
-    .display-name {
-        margin: 5px 5px 5px 5px;
-        color: white;
+    &__name {
+      margin: 10px auto;
+      color: white;
+      width: 95%;
+      height: 100%;
+    }
+    &__header-description {
+      border: 4px solid black;
+      margin: auto;
+      background: #212121;
+      font-size: 14pt;
+      color: white;
+    }
+    &__description {
+      margin: 10px auto;
+      color: white;
+      height: 100%;
+      min-height: 200px;
+      width: 95%;
     }
 
-    .display-description {
-        margin: 5px 5px 5px 5px;
-        color: white;
-        height: 200px;
-        width: 100%;
-    }
+  }
+
 </style>

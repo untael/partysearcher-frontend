@@ -36,9 +36,9 @@
       width: 100%;
       color: white;
       margin: auto;
-      background: #242d44;
+      background: #424242;
       border: 0px;
-      border-radius: 4px;
+      border-radius: 2px;
       text-indent: 10px;
       padding: 0px;
     }

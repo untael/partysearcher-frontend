@@ -1,29 +1,39 @@
 <template>
-    <div style="width: 420px; display: flex;">
-        <div class="game-list-item-block">
-            <vm-bar>
-                {{game.name}}
-            </vm-bar>
-        </div>
-        <div style="margin: auto auto auto 0px; display: flex">
-            <div>
-                <button
-                        class="gamelistitem-update-button"
-                        @click.stop="$emit('sendGameData')"
-                >
-                    Edit
-                </button>
-            </div>
-            <div>
-                <button
-                        class="gamelistitem-delete-button"
-                        @click.stop="deleteGame"
-                >
-                    X
-                </button>
-            </div>
-        </div>
+  <div class="game-list-item__body">
+    <div class="game-list-item__bar">
+      <vm-bar>
+        {{game.name}}
+      </vm-bar>
     </div>
+    <!--<div class="game-list-item__button-container">-->
+    <!--<div>-->
+    <!--<button-->
+    <!--class="game-list-item__update-button"-->
+    <!--@click.stop="$emit('sendGameData')"-->
+    <!--&gt;-->
+    <!--Edit-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--<div>-->
+    <!--<button-->
+    <!--class="game-list-item__delete-button"-->
+    <!--@click.stop="deleteGame"-->
+    <!--&gt;-->
+    <!--X-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="dropdown">
+      <button onclick="gameActions()" class="dropbtn">?</button>
+      <div id="myDropdown" class="dropdown-content">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -50,15 +60,18 @@
       },
     },
     methods: {
+      gameActions () {
+        document.getElementById('myDropdown').classList.toggle('show')
+      },
       deleteGame () {
 //        console.log(this.game)
-        axios.post('http://localhost:3000/delete-game',{
+        axios.post('http://localhost:3000/delete-game', {
           game: this.game,
         })
           .then(response => {
             console.log(response.data)
           })
-          .catch( e => {
+          .catch(e => {
             this.errors.push(e)
           })
       },
@@ -66,33 +79,70 @@
   }
 </script>
 
-<style>
-    .game-list-item-block {
-        /*margin-left: 10px;*/
-        /*margin-bottom: 5px;*/
-        width: 300px;
-        /*margin-top: 10px;*/
-        margin: 10px auto;
+<style lang="scss">
+  .game-list-item {
+    &__body {
+      display: flex;
+      margin: 10px auto;
+    }
+    &__bar {
+      width: 300px;
     }
 
-    .gamelistitem-update-button {
-             width: 100%;
-             margin: auto;
-             color: white;
-             background: #242d44;
-             border: 1px solid white;
-             border-radius: 4px;
-             font-family: lfg2;
-             font-size: 16pt;
-         }
-    .gamelistitem-delete-button {
-        width: 100%;
-        margin:auto 2px auto;
-        color: red;
-        background: #242d44;
-        border: 1px solid white;
-        border-radius: 4px;
-        font-family: lfg2;
-        font-size: 16pt;
+    &__update-button {
+      width: 100%;
+      color: white;
+      font-size: 10pt;
     }
+    &__delete-button {
+      width: 100%;
+      color: red;
+      font-size: 10pt;
+    }
+    &__button-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {
+    display:block;
+  }
+
+  .dropdown-content li {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
 </style>

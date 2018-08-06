@@ -1,9 +1,9 @@
 <template>
-        <div class="bar transition">
-            <div class="bar-content">
-                <slot/>
-            </div>
-        </div>
+  <div class="bar transition">
+    <div class="bar__content">
+      <slot/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -20,26 +20,31 @@
 </script>
 
 <style lang="scss">
-    .bar{
-        border: 2px solid transparent;
-        /*border-radius: 10px;*/
-        overflow: hidden;
-        background: #242d44;
-    }
+  .bar {
+    border: 2px solid transparent;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #212121;
 
-    .bar:hover {
-        border-color: #00aeee;
-        cursor: pointer;
+    &__content {
+      margin: 5px auto;
+      text-align: center;
+      color: white;
+      font-size: 18pt;
     }
+  }
 
-    .transition {
-        transition: 0.3s;
-    }
+  .bar:hover {
+    border-color: white;
+    cursor: pointer;
+    background: #424242;
+  }
 
-    .bar-content {
-        margin: 5px 5px;
-        text-align: center;
-        color: white;
-        font-size: 18pt;
-    }
+  .transition {
+    transition: 0.3s;
+  }
+
+  .bar-content {
+
+  }
 </style>

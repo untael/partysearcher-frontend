@@ -33,12 +33,12 @@
     &__body {
       display: flex;
       width: 100%;
-      background-color: #242d44;
+      background-color: #424242;
 
       &__content {
-        height: 5000px;
-        max-width: 1080px;
-        margin: 0px auto;
+        min-height: 1000px;
+        height: 100%;
+        width: 100%;
         overflow: hidden;
         font-family: lfg2;
       }
@@ -47,11 +47,6 @@
       display: flex;
       flex-flow: row nowrap;
       align-items: flex-start;
-
-      &__user-profile{
-        position: relative;
-        right: 20px;
-      }
     }
   }
 </style>

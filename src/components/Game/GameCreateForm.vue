@@ -1,31 +1,30 @@
 <template>
-    <div class="gamecreateform-container">
-        <div class="gamecreateform-body">
-            <div>
-                <div style="margin-left: 5px; color: white; font-size: 16pt;">
-                    Name
-                </div>
-                <vm-input
-                        v-model="game.name"
-                />
-            </div>
-            <div>
-                <div style="margin-left: 5px; margin-top: 5px; color: white; font-size: 16pt;">
-                    Description
-                </div>
-                <vm-text-area
-                        v-model="game.description"
-                />
-            </div>
-            <div style="margin-top: 5px;">
-                <vm-bar
-                        @click.native="submit()"
-                >
-                    Add game to database
-                </vm-bar>
-            </div>
+  <div class="game-create-form__body">
+    <div class="game-create-form__container">
+        <div class="game-create-form__header-name">
+          Name
         </div>
+        <vm-input
+          class="game-create-form__input-name"
+          v-model="game.name"
+        />
+        <div class="game-create-form__header-description">
+          Description
+        </div>
+        <vm-text-area
+          class="game-create-form__input-description"
+          v-model="game.description"
+        />
+      <div>
+        <vm-bar
+          class="game-create-form__button"
+          @click.native="submit()"
+        >
+          Add game to database
+        </vm-bar>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -60,24 +59,46 @@
           .catch(e => {
             this.errors.push(e)
           })
-        this.game = {};
+        this.game = {}
       },
     },
   }
 </script>
 
-<style>
-    .gamecreateform-container {
-        align-items: center;
-        margin: auto;
-        border: 4px solid #404b62;
-        border-radius: 4px;
-        background: #404b62;
-        width: 60%;
-        margin: 100px auto;
-    }
+<style lang="scss">
+  .game-create-form {
 
-    .gamecreateform-body {
-        margin: 5px 5px 5px 5px;
+    &__container {
     }
+    &__body {
+      margin: auto;
+      border-radius: 2px;
+      background: black;
+      width: 60%;
+      min-width: 400px;
+      margin: 100px auto;
+    }
+    &__header-name {
+      border: 4px solid black;
+      background: #212121;
+      font-size: 14pt;
+      color: white;
+    }
+    &__header-description {
+      border: 4px solid black;
+      margin: auto;
+      background: #212121;
+      font-size: 14pt;
+      color: white;
+    }
+    &__input-name{
+      border: 4px solid black;
+    }
+    &__input-description{
+      border: 4px solid black;
+    }
+    &__button{
+      border: 4px solid black;
+    }
+  }
 </style>

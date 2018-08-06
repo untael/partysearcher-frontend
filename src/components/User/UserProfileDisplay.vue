@@ -1,25 +1,10 @@
 <template>
-  <div id="user-profile">
     <div class="user-profile-display__body">
       <div class="user-profile-display__container">
         <div class="user-profile-display__nickname">
           {{user.username}}
         </div>
         <div class="user-profile-display__info">
-          <div class="user-profile-display__property">
-            <div class="user-profile-display__property__top">
-              <div class="user-profile-display__icon">
-              </div>
-              <div class="user-profile-display__icon">
-              </div>
-            </div>
-            <div class="user-profile-display__property__bottom">
-              <div class=" user-profile-display__icon">
-              </div>
-              <div class="user-profile-display__icon">
-              </div>
-            </div>
-          </div>
           <div class="user-profile-display__avatar">
           </div>
         </div>
@@ -39,7 +24,6 @@
         </button>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -90,13 +74,12 @@
 </script>
 
 <style lang="scss">
-  #user-profile {
-  }
-
   .user-profile-display {
 
     &__logout-block {
-      margin-left: 25px;
+      margin: auto 5px;
+      display: flex;
+      flex-direction: column;
     }
 
     &__logout-button {
@@ -108,18 +91,21 @@
     }
 
     &__body {
+      border-left: 2px solid white;
+      border-right: 2px solid white;
       background: transparent;
-      width: 100%;
       display: flex;
+      position: absolute;
+      right: 80px;
     }
 
     &__avatar {
-      height: 60px;
-      width: 60px;
-      background: white;
-      margin: 5px auto;
+      margin: auto 5px;
+      height: 30px;
+      width: 30px;
+      background: black;
       border-radius: 10px;
-      border: 2px solid #00aeee;
+      border: 2px solid white;
     }
 
     &__info {
@@ -153,9 +139,9 @@
     &__container {
       margin: 0px auto;
       display: flex;
-      flex-direction: column;
     }
     &__nickname {
+      margin: auto 5px;
       font-size: 16pt;
       text-align: center;
       color: white;

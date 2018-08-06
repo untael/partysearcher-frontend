@@ -3,6 +3,7 @@
     <input
       class="input__body"
       v-model="valueProxy"
+      :placeholder="placeholder"
     >
   </div>
 </template>
@@ -14,6 +15,10 @@
     props: {
       value: {
         type: String,
+      },
+      placeholder: {
+        type: String,
+        default: null,
       },
     },
     //to parent
@@ -35,9 +40,9 @@
     &__body {
       width: 100%;
       height: 40px;
-      background: #242d44;
+      background: #424242;
       border: 0px;
-      border-radius: 4px;
+      border-radius: 1px;
       color: white;
       text-indent: 10px;
     }

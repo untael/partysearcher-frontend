@@ -63,7 +63,8 @@
       closeInfo () {
         let divTwo = document.getElementById('mode-two')
         divTwo.style.display = 'none'
-      }
+      },
+
     },
   }
 </script>
@@ -96,7 +97,6 @@
     }
 
     .game-room-info {
-        margin-top: 20px;
         margin-right: 10%;
     }
 
