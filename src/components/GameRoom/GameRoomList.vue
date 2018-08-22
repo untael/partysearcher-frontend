@@ -1,18 +1,19 @@
 <template>
-    <div>
-        <div class="game-room-list-search">
-            <input type="text" v-model="search" placeholder="Type your game"
-                   class="game-room-list-search-input"/>
-        </div>
-        <div class="game-room-list-container">
-            <vm-game-room-list-item
-                    :gameRoom="gameRoom"
-                    v-for="gameRoom in filteredGameRooms"
-                    :key="gameRoom.id"
-                    @selected="$emit('selected', gameRoom)"
-            />
-        </div>
+  <div class="game-room-list__body">
+    <div class="game-room-list__search">
+      <input type="text" v-model="search" placeholder="Type your game"
+             class="game-room-list__search__input"
+      />
     </div>
+    <div class="game-room-list__container">
+      <vm-game-room-list-item
+        :gameRoom="gameRoom"
+        v-for="gameRoom in filteredGameRooms"
+        :key="gameRoom.id"
+        @selected="$emit('selected', gameRoom)"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -36,7 +37,7 @@
       }
     },
     created: function () {
-      axios.get('http://localhost:3000/gameroomlist', {
+      axios.get('http://localhost:3000/api/gameroomlist', {
         gameRoom: this.gameRoom,
       })
         .then(response => {
@@ -56,31 +57,30 @@
     },
   }
 </script>
-<style>
-    .game-room-list-container {
-        /*border: 1px solid white;*/
-        width: 420px;
-        display: flex;
-        flex-direction: column;
-        border: 0px;
-        border-radius: 4px;
-        background: #404b62;
-        margin: auto;
+<style lang="scss">
+  .game-room-list {
+    &__body {
+      background: black;
+      min-width: 320px;
+      margin-left: 10px;
     }
-
-    .game-room-list-search-input {
-        width: 420px;
-        border: 2px solid #00aeee;
-        border-radius: 4px;
-        margin: auto;
+    &__container {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+    }
+    &__search {
+      width: 100%;
+      align-content: center;
+      &__input {
+        width: 100%;
+        min-width: 320px;
+        border: 0px;
         height: 30px;
         text-indent: 15px;
-        background: #242d44;
-    }
-
-    .game-room-list-search {
-        width: 420px;
+        background: white;
         margin: 10px auto;
+      }
     }
-
+  }
 </style>

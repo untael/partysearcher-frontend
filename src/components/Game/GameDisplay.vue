@@ -1,16 +1,19 @@
 <template>
-  <div class="display__body">
-    <div class="display__container">
-      <div class="display__header-name">
+  <div class="game-display__body">
+    <div class="game-display__container">
+      <div class="game-display__text__header">
+        Game Info
+      </div>
+      <div class="game-display__header-name">
         Name:
       </div>
-      <div class="display__name">
+      <div class="game-display__name">
         {{game.name}}
       </div>
-      <div class="display__header-description">
+      <div class="game-display__header-description">
         Description
       </div>
-      <div class="display__description">
+      <div class="game-display__description">
         {{game.description}}
       </div>
       <slot/>
@@ -34,21 +37,21 @@
 </script>
 
 <style lang="scss">
-  .display {
+  .game-display {
     &__body {
       min-width: 400px;
     }
     &__container {
       border-radius: 2px;
-      margin: 10px 10px;
+      margin: 0px 10px;
       background: black;
     }
     &__header-name {
       border: 4px solid black;
+      border-radius: 4px;
       background: #212121;
       font-size: 14pt;
       color: white;
-      margin: 10px auto;
     }
     &__name {
       margin: 10px auto;
@@ -69,6 +72,17 @@
       height: 100%;
       min-height: 200px;
       width: 95%;
+    }
+    &__text {
+      color: white;
+      margin: 10px auto;
+      &__header {
+        font-size: 18pt;
+        text-align: center;
+        color: white;
+        background: #212121;
+        border: 4px solid black;
+      }
     }
 
   }

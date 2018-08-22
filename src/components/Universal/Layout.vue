@@ -25,8 +25,8 @@
 
 <style lang="scss">
   @font-face {
-    font-family: lfg2;
-    src: url(../../Fonts/lfg2.ttf);
+    font-family: two;
+    src: url(../../Fonts/two.ttf);
   }
 
   .layout {
@@ -40,7 +40,7 @@
         height: 100%;
         width: 100%;
         overflow: hidden;
-        font-family: lfg2;
+        font-family: two;
       }
     }
     &__navbar {

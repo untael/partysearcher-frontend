@@ -1,7 +1,7 @@
 <template>
   <div class="game-list-explorer__body">
     <!-- Form on visit explorer -->
-    <div class="game-list-explorer__item" v-show="mode === 'one'">
+    <div class="game-list-explorer__panel" v-if="mode === 'one'">
       <div class="game-list-explorer__create-button">
         <vm-bar
           @click.native="mode='three'"
@@ -10,17 +10,16 @@
           Create new game
         </vm-bar>
       </div>
-      <div style="margin-top: 10px;">
+      <div class="game-list-explorer__left-panel">
         <vm-game-list
           @selected="selected"
           @showUpdateForm="showUpdateForm"
           @click.native="mode='two'"
         />
       </div>
-
     </div>
     <!-- Form if click on Any game-->
-    <div class="game-list-explorer__item__mode-two" v-show="mode === 'two'">
+    <div class="game-list-explorer__panel" v-if="mode === 'two'">
       <div class="game-list-explorer__create-button">
         <vm-bar
           @click.native="mode='three'"
@@ -29,29 +28,22 @@
         </vm-bar>
       </div>
       <div class="game-list-explorer__container">
-        <div>
+        <div class="game-list-explorer__left-panel">
           <vm-game-list
             @selected="selected"
             @showUpdateForm="showUpdateForm"
             @click.native="mode='two'"
           />
         </div>
-        <div>
+        <div class="game-list-explorer__right-panel">
           <vm-game-display
             :game="selectedGame"
           />
-          <div style="margin: 5px auto; width: 50%;">
-            <vm-bar
-              @click.native="mode='one'"
-            >
-              Back to the list
-            </vm-bar>
-          </div>
         </div>
       </div>
     </div>
     <!-- Form on click Create Game -->
-    <div class="game-list-explorer__item__mode-two" v-show="mode === 'three'">
+    <div class="game-list-explorer__panel" v-if="mode === 'three'">
       <div class="game-list-explorer__create-button">
         <vm-bar
           @click.native="mode='three'"
@@ -60,30 +52,21 @@
         </vm-bar>
       </div>
       <div class="game-list-explorer__container">
-        <div>
+        <div class="game-list-explorer__left-panel">
           <vm-game-list
             @selected="selected"
             @showUpdateForm="showUpdateForm"
             @click.native="mode='two'"
           />
         </div>
-        <div style="width: 100%;">
+        <div class="game-list-explorer__right-panel">
           <vm-game-create-form
-            style="width: 95%; margin: 0px auto;"
-
           />
-          <div style="margin: 5px auto; width: 50%;">
-            <vm-bar
-              @click.native="mode='one'"
-            >
-              Back to the list
-            </vm-bar>
-          </div>
         </div>
       </div>
     </div>
     <!-- Form on click Update -->
-    <div class="game-list-explorer__item__mode-two" v-show="mode === 'four'">
+    <div class="game-list-explorer__panel" v-if="mode === 'four'">
       <div class="game-list-explorer__create-button">
         <vm-bar
           @click.native="mode='three'"
@@ -92,25 +75,17 @@
         </vm-bar>
       </div>
       <div class="game-list-explorer__container">
-        <div>
+        <div class="game-list-explorer__left-panel">
           <vm-game-list
             @selected="selected"
             @showUpdateForm="showUpdateForm"
             @click.native="mode='two'"
           />
         </div>
-        <div style="width: 100%;">
+        <div class="game-list-explorer__right-panel">
           <vm-game-update-form
-            style="width: 95%; margin: 0px auto;"
             :game="selectedGame"
           />
-          <div style="margin: 5px auto; width: 50%;">
-            <vm-bar
-              @click.native="mode='one'"
-            >
-              Back to the list
-            </vm-bar>
-          </div>
         </div>
       </div>
     </div>
@@ -164,20 +139,21 @@
     &__container{
       display: flex;
     }
-    &__item {
+    &__panel {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      &__mode-two {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-      }
     }
     &__create-button{
       margin: 10px 10px;
+      min-width: 720px;
+    }
+    &__left-panel{
+      width:40%;
+    }
+    &__right-panel{
+      width:60%;
     }
   }
 </style>

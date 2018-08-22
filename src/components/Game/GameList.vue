@@ -1,6 +1,6 @@
 <template>
-  <div class="gamelist__body">
-    <div class="gamelist__container">
+  <div class="game-list__body">
+    <div class="game-list__container">
       <vm-game-list-item
         :game="game"
         v-for="game in games"
@@ -52,16 +52,15 @@
   }
 </script>
 <style lang="scss">
-  .gamelist {
+  .game-list {
     &__body {
-      width: 420px;
       border-radius: 2px;
       border: 0px;
       background: black;
       margin-left: 10px;
+      min-width: 320px;
     }
     &__container {
-      /*border: 1px solid white;*/
       display: flex;
       flex-direction: column;
     }

@@ -57,6 +57,7 @@
             </div>
             <div class="navbar__login-form" v-if="dropdownShow === true">
               <vm-signup-explorer
+                @closeLoginForm="closeLoginForm"
               />
             </div>
           </div>
@@ -113,6 +114,12 @@
       document.removeEventListener('click', this.documentClick)
     },
     methods: {
+      closeLoginForm () {
+        console.log(this.dropdownShow)
+        console.log('1231')
+        this.dropdownShow = false
+        console.log(this.dropdownShow)
+      },
       documentClick (e) {
         const el = this.$refs.dropdownMenu
         const target = e.target

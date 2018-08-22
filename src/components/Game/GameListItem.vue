@@ -1,37 +1,29 @@
 <template>
   <div class="game-list-item__body">
-    <div class="game-list-item__bar">
+    <div class="game-list-item__container">
       <vm-bar>
         {{game.name}}
       </vm-bar>
     </div>
-    <!--<div class="game-list-item__button-container">-->
-    <!--<div>-->
-    <!--<button-->
-    <!--class="game-list-item__update-button"-->
-    <!--@click.stop="$emit('sendGameData')"-->
-    <!--&gt;-->
-    <!--Edit-->
-    <!--</button>-->
-    <!--</div>-->
-    <!--<div>-->
-    <!--<button-->
-    <!--class="game-list-item__delete-button"-->
-    <!--@click.stop="deleteGame"-->
-    <!--&gt;-->
-    <!--X-->
-    <!--</button>-->
-    <!--</div>-->
-    <!--</div>-->
-    <div class="dropdown">
-      <button onclick="gameActions()" class="dropbtn">?</button>
-      <div id="myDropdown" class="dropdown-content">
-        <ul>
-          <li>1</li>
-          <li>2</li>
-        </ul>
-
-      </div>
+    <div class="game-list-item__button-container">
+        <img
+          class="game-list-item__icon-edit"
+          @click.stop="$emit('sendGameData')"
+          src="../../Images/edit.png"
+        >
+        <img
+          id="delete-button"
+          class="game-list-item__icon-delete"
+          src="../../Images/delete.png"
+          @click.stop="confirmDelete"
+        >
+      <img
+        style="display: none;"
+        id="confirm-delete-button"
+        class="game-list-item__icon-delete"
+        src="../../Images/check.png"
+        @click.stop="deleteGame"
+      >
     </div>
   </div>
 </template>
@@ -60,12 +52,9 @@
       },
     },
     methods: {
-      gameActions () {
-        document.getElementById('myDropdown').classList.toggle('show')
-      },
       deleteGame () {
 //        console.log(this.game)
-        axios.post('http://localhost:3000/delete-game', {
+        axios.post('http://localhost:3000/api/delete-game', {
           game: this.game,
         })
           .then(response => {
@@ -75,6 +64,10 @@
             this.errors.push(e)
           })
       },
+      confirmDelete () {
+        document.getElementById('delete-button').style.display = 'none'
+        document.getElementById('confirm-delete-button').style.display = 'block'
+      }
     },
   }
 </script>
@@ -85,10 +78,9 @@
       display: flex;
       margin: 10px auto;
     }
-    &__bar {
+    &__container {
       width: 300px;
     }
-
     &__update-button {
       width: 100%;
       color: white;
@@ -102,47 +94,16 @@
     &__button-container {
       display: flex;
       flex-direction: column;
+      /*margin: auto 5px;*/
+      border: 1px solid #212121;
     }
-  }
-
-  .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-
-  /* Dropdown button on hover & focus */
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
-
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-  .show {
-    display:block;
-  }
-
-  .dropdown-content li {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+    &__icon-edit:hover{
+      cursor: pointer;
+      background: #212121;
+    }
+    &__icon-delete:hover{
+      cursor: pointer;
+      background: red;
+    }
   }
 </style>

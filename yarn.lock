@@ -7368,9 +7368,9 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-component-tree@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/vue-component-tree/-/vue-component-tree-3.0.1.tgz#a0580b763b670aa16d84887a1aba4dd5b74a2ea6"
+vue-book@^0.0.13:
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/vue-book/-/vue-book-0.0.13.tgz#fb892118dd7b63841c04b6f3939af2b551bd115a"
 
 vue-eslint-parser@^2.0.3:
   version "2.0.3"

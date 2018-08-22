@@ -18,6 +18,7 @@
           id="signupPassword"
           v-model="user.password"
           :placeholder="'Min 6 symbols'"
+          type="password"
         />
       </div>
       <div class="signup-form__container">
@@ -28,6 +29,7 @@
           id="signupPasswordConfirm"
           v-model="user.passwordConfirm"
           :placeholder="'Min 6 symbols'"
+          type="password"
         />
       </div>
       <div class="signup-form__container__button">
@@ -53,6 +55,7 @@
   import VmInput from '../Universal/Input.vue'
   import VmBar from '../Universal/Bar.vue'
   import axios from 'axios'
+  import router from '../../Router/routes'
 
   export default {
     name: 'VmSignupForm',
@@ -93,8 +96,23 @@
             .catch(e => {
               this.errors.push(e)
             })
-          this.user = {}
         }
+        axios.post('http://localhost:3000/api/login', {
+        user: this.user,
+      })
+          .then(response => {
+            console.log(response.data.success)
+            localStorage.setItem('token', response.data.token)
+            localStorage.setItem('userId', response.data.id)
+            this.$bus.$emit('logged', 'User logged')
+            console.log(response.data)
+            setTimeout(() => {
+              router.push('/')
+            }, 1500)
+          })
+          .catch(e => {
+            this.errors.push(e)
+          })
       },
     },
   }

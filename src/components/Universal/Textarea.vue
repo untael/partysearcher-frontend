@@ -35,12 +35,14 @@
       resize: none;
       width: 100%;
       color: white;
-      margin: auto;
       background: #424242;
       border: 0px;
       border-radius: 2px;
       text-indent: 10px;
       padding: 0px;
     }
+  }
+  textarea:focus{
+      outline: 2px solid white;
   }
 </style>

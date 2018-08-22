@@ -1,6 +1,7 @@
 <template>
   <div>
     <vm-login-form2
+      @closeLoginForm="$emit('closeLoginForm')"
       @clickedSignup="showSignupForm"
       id="login-form"
     />

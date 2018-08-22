@@ -4,6 +4,7 @@
       class="input__body"
       v-model="valueProxy"
       :placeholder="placeholder"
+      :type="type"
     >
   </div>
 </template>
@@ -17,6 +18,10 @@
         type: String,
       },
       placeholder: {
+        type: String,
+        default: null,
+      },
+      type: {
         type: String,
         default: null,
       },
@@ -39,12 +44,17 @@
   .input {
     &__body {
       width: 100%;
-      height: 40px;
-      background: #424242;
+      /*background: #424242;*/
+      height: 36px;
+      background: white;
       border: 0px;
       border-radius: 1px;
-      color: white;
       text-indent: 10px;
+      color: black;
     }
+  }
+
+  input:focus {
+    outline: 2px solid white;
   }
 </style>

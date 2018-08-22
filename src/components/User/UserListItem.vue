@@ -51,7 +51,7 @@
         background: #242d44;
         border: 1px solid white;
         border-radius: 4px;
-        font-family: lfg2;
+        font-family: two;
         font-size: 16pt;
     }
 

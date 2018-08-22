@@ -18,11 +18,12 @@
           id="password"
           v-model="user.password"
           :placeholder="'Min 6 symbols'"
+          type="password"
         />
       </div>
       <div class="login-form2__container__button">
         <button
-          @click="submit()"
+          @click="submit(),$emit('closeLoginForm')"
           class="login-form2__submit-button">
           Submit
         </button>
@@ -71,6 +72,7 @@
               this.resMessage = response.data.message
               localStorage.setItem('token', response.data.token)
               localStorage.setItem('userId', response.data.id)
+              localStorage.setItem('username', response.data.username)
               this.$bus.$emit('logged', 'User logged')
               console.log(response.data)
               setTimeout(() => {

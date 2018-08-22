@@ -50,7 +50,7 @@
     methods: {
       submit () {
 //        console.log(this.game)
-        axios.post('http://localhost:3000/create-game', {
+        axios.post('http://localhost:3000/api/create-game', {
           game: this.game,
         })
           .then(response => {
@@ -71,12 +71,10 @@
     &__container {
     }
     &__body {
-      margin: auto;
+      margin: 0px 10px;
       border-radius: 2px;
       background: black;
-      width: 60%;
       min-width: 400px;
-      margin: 100px auto;
     }
     &__header-name {
       border: 4px solid black;
